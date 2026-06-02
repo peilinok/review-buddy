@@ -41,9 +41,77 @@ A good Review Buddy session typically looks like this:
 
 See `examples/sample-pr/` for a realistic worked example.
 
+## Repo layout
+
+```text
+review-buddy/
+├── SKILL.md
+├── README.md
+├── LICENSE
+├── .gitignore
+├── references/
+│   └── review-templates.md
+└── examples/
+    └── sample-pr/
+        ├── README.md
+        ├── pr-description.md
+        ├── review-brief.md
+        ├── context-cards.md
+        ├── chunk-plan.md
+        ├── guided-review.md
+        └── final-summary.md
+```
+
 ## Installation / use in Hermes
 
-If you want to install this as a local skill, point Hermes at the `SKILL.md` in this repo or copy the folder into your Hermes skills directory.
+### Option 1: Use as a local linked skill
+
+This repo is already suitable for a linked/local-development workflow where Hermes reads the `SKILL.md` from this project directory via your local skill path.
+
+### Option 2: Copy into Hermes skills manually
+
+Copy the project into a Hermes skill directory such as:
+
+```text
+~/.hermes/skills/software-development/review-buddy/
+```
+
+and make sure `SKILL.md` sits at the root of that folder.
+
+### Option 3: Install from a raw `SKILL.md`
+
+If you host the raw `SKILL.md` somewhere accessible, Hermes can install skills from a direct URL.
+
+## What makes this skill different
+
+Review Buddy is not primarily a GitHub API skill and not a one-shot code-review summarizer.
+
+It is designed to:
+
+- help a reviewer build context before judging code
+- split large changes into meaningful chunks
+- apply the right review lenses to each chunk
+- keep the human reviewer in control of the verdict
+- work especially well for AI-generated or unfamiliar changes
+
+## Examples
+
+The `examples/sample-pr/` directory demonstrates the intended rhythm of the skill:
+
+- orient the reviewer first
+- pull surrounding context second
+- decompose the change third
+- review one chunk at a time
+- summarize only after the chunked review is complete
+
+## Contributing / editing
+
+If you edit this repo:
+
+- keep `SKILL.md` as the source of truth
+- keep examples aligned with the skill's recommended review rhythm
+- prefer additive reference material under `references/` and worked examples under `examples/`
+- preserve valid frontmatter at the top of `SKILL.md`
 
 ## License
 
